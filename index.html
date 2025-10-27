@@ -28,12 +28,18 @@
     .hero{background:linear-gradient(135deg, rgba(106,166,255,.14), rgba(0,0,0,0));border:1px solid #233449;border-radius:18px;padding:22px}
     .hero h2{margin:0 0 10px;font-size:22px}
     .hero p{margin:0;color:var(--muted)}
+    .media{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+    .media img{width:100%;height:100%;object-fit:cover;border-radius:10px;border:1px solid #223044}
+    .vidgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .vid{grid-column:span 12}
+    @media(min-width:860px){ .vid{grid-column:span 6} }
+    .vid video{width:100%;border-radius:12px;border:1px solid #223044;display:block;background:#000}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <img src="assets/profile.jpg" alt="YOUR NAME headshot" />
+      <img src="assets/images/headshot.png" alt="YOUR NAME headshot" />
       <div class="title">
         <h1>YOUR NAME</h1>
         <p>Short one-liner about you — e.g., “Aerospace + Autonomy, building reliable simulation and control systems.”</p>
@@ -62,8 +68,13 @@
         </p>
         <div class="btnrow">
           <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noreferrer">View Code</a>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">Demo Video</a>
+          <a class="btn" href="#demos" rel="noreferrer">Demo Videos</a>
           <a class="btn" href="#contact">Contact Me</a>
+        </div>
+        <div class="media" aria-label="project screenshots">
+          <img src="assets/images/SIM_robotic_arms.png" alt="Robotic arms simulation screenshot" />
+          <img src="assets/images/SIM_foxglove_1.png" alt="Foxglove visualization screenshot" />
+          <img src="assets/Screenshot%20from%202025-10-14%2012-39-52.png" alt="Simulation screenshot" />
         </div>
       </div>
 
@@ -80,6 +91,35 @@
       <div class="card">
         <h3>About</h3>
         <p>Two or three sentences that explain your focus and what you’re best at. Mention one concrete result, metric, or capability (e.g., “benchmarked controllers across 5 mission profiles and reduced settling time by 18%”).</p>
+      </div>
+    </section>
+
+    <section class="grid" id="demos" aria-label="demos">
+      <div class="card">
+        <h3>Demos</h3>
+        <p>Short clips showcasing guidance, navigation, and control experiments in the simulation.</p>
+        <div class="vidgrid">
+          <div class="vid">
+            <p class="tag">Guidance Demonstration</p>
+            <video controls src="assets/videos/GuidanceDemonstration.mp4"></video>
+          </div>
+          <div class="vid">
+            <p class="tag">HCW Orbit Demonstration</p>
+            <video controls src="assets/videos/HCWOrbitDemonstration.mp4"></video>
+          </div>
+          <div class="vid">
+            <p class="tag">Multi-Camera Demonstration</p>
+            <video controls src="assets/videos/MultiCameraDemonsration.mp4"></video>
+          </div>
+          <div class="vid">
+            <p class="tag">Sample Simulation</p>
+            <video controls src="assets/videos/SampleSimulation.mp4"></video>
+          </div>
+          <div class="vid">
+            <p class="tag">Extra Clip</p>
+            <video controls src="assets/1014.mp4"></video>
+          </div>
+        </div>
       </div>
     </section>
 
