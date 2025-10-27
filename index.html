@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YOUR NAME — Portfolio</title>
+  <meta name="description" content="Portfolio of YOUR NAME: projects, resume, and contact." />
+  <style>
+    :root { --bg:#0b0f14; --card:#111826; --muted:#a5b4c3; --ink:#e6edf3; --accent:#6aa6ff; }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:32px 20px}
+    header{display:flex;gap:20px;align-items:center;margin-top:12px}
+    header img{width:88px;height:88px;border-radius:18px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .title h1{margin:0 0 6px;font-size:32px;letter-spacing:.2px}
+    .title p{margin:0;color:var(--muted)}
+    .chipbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{font-size:12px;padding:6px 10px;border:1px solid #273445;border-radius:999px;color:#cbd5e1}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:28px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid #223044;border-radius:18px;padding:18px 18px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    @media(min-width:860px){ .card.half{grid-column:span 6} }
+    .card h3{margin:0 0 10px;font-size:18px}
+    .card p{margin:0 0 12px;color:var(--muted);line-height:1.5}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border:1px solid #2a3b50;border-radius:10px}
+    .tag{font-size:12px;color:#9fb3c7;border:1px solid #2a3b50;padding:4px 8px;border-radius:999px;margin-right:6px}
+    footer{margin:36px 0 12px;color:#7d8ea1;font-size:13px}
+    .hero{background:linear-gradient(135deg, rgba(106,166,255,.14), rgba(0,0,0,0));border:1px solid #233449;border-radius:18px;padding:22px}
+    .hero h2{margin:0 0 10px;font-size:22px}
+    .hero p{margin:0;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/profile.jpg" alt="YOUR NAME headshot" />
+      <div class="title">
+        <h1>YOUR NAME</h1>
+        <p>Short one-liner about you — e.g., “Aerospace + Autonomy, building reliable simulation and control systems.”</p>
+        <div class="chipbar">
+          <span class="chip">Python</span><span class="chip">C++</span><span class="chip">MATLAB</span><span class="chip">ROS 2</span><span class="chip">MuJoCo</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="highlight">
+      <div class="card hero">
+        <h2>Welcome</h2>
+        <p>This site highlights one flagship project, a short bio, and my resume. I’m currently looking for roles in <em>GNC / Autonomy / Systems</em>. Feel free to reach out!</p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="content">
+      <div class="card half">
+        <h3>Featured Project — <em>Multi-Spacecraft Simulation</em></h3>
+        <p>Physics-based ROS 2 + MuJoCo environment for target-chaser relative motion, EKF navigation, and modular GNC. Focus on clean interfaces, namespacing, and repeatable experiments.</p>
+        <p>
+          <span class="tag">ROS 2</span>
+          <span class="tag">MuJoCo</span>
+          <span class="tag">EKF</span>
+          <span class="tag">HCW</span>
+        </p>
+        <div class="btnrow">
+          <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noreferrer">View Code</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Demo Video</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h3>Resume</h3>
+        <p>Download a one-page PDF with selected experience, projects, and skills.</p>
+        <div class="btnrow">
+          <a class="btn" href="assets/resume.pdf" target="_blank" rel="noreferrer">Download PDF</a>
+          <a class="btn" href="mailto:youremail@domain.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>About</h3>
+        <p>Two or three sentences that explain your focus and what you’re best at. Mention one concrete result, metric, or capability (e.g., “benchmarked controllers across 5 mission profiles and reduced settling time by 18%”).</p>
+      </div>
+    </section>
+
+    <section class="grid" id="contact" aria-label="contact">
+      <div class="card">
+        <h3>Contact</h3>
+        <p>📧 <a href="mailto:youremail@domain.com">youremail@domain.com</a> &nbsp; · &nbsp; 💼 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a> &nbsp; · &nbsp; 🐙 <a href="https://github.com/YOUR-USERNAME">GitHub</a></p>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> YOUR NAME</footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
