@@ -35,6 +35,7 @@
     .subsection img{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:12px 0;display:block}
     .subsection video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:12px 0;display:block;background:#000}
     .video-caption{font-size:13px;color:var(--muted);margin:8px 0 4px;font-style:italic}
+    .image-caption{font-size:13px;color:var(--muted);margin:4px 0 8px;font-style:italic}
     .subsection-images{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:600px){ .subsection-images{grid-template-columns:repeat(2,1fr)} }
     @media(min-width:860px){ .subsection-images.three{grid-template-columns:repeat(3,1fr)} }
@@ -48,7 +49,7 @@
         <h1>Hridai Ambati</h1>
         <p>I have a passion for multi-agent autonomy within the realm of aerospace robotics. My work primarily focuses on this area at the Aerospace Robotics Laboratory (ARL), where I contribute to advancing innovative solutions for complex aerospace systems.</p>
         <div class="chipbar">
-          <span class="chip">Convex Optimization</span><span class="chip">C++, Python, MATLAB</span><span class="chip">GNC</span><span class="chip">Bayesian State Estimation</span><span class="chip">ROS 2, MuJoCo</span><span class="chip">Multi-Agent Autonomy</span><span class="chip">Cooperative Control</span><span class="chip">Motion Planning</span>
+          <span class="chip">Convex Optimization</span><span class="chip">C++, Python, MATLAB</span><span class="chip">GNC</span><span class="chip">Bayesian State Estimation</span><span class="chip">EKF</span><span class="chip">ROS 2, MuJoCo</span><span class="chip">HCW</span><span class="chip">Multi-Agent Autonomy</span><span class="chip">Cooperative Control</span><span class="chip">Motion Planning</span>
         </div>
       </div>
     </header>
@@ -83,22 +84,11 @@
       <div class="card">
         <h3>Featured Project — <em>A Multi-Agent Spacecraft Simulation Framework</em></h3>
         <p>The transition from large, monolithic satellites to fleets of smaller spacecraft demonstrates the critical role of validating and evaluating distributed space systems for the future of scientific and commercial missions. This paper presents a high-fidelity simulation framework for the study of formation flight dynamics, development of GNC (guidance, navigation, and control) algorithms, and the simulation of inter-spacecraft interactions. The framework is built on Robot Operating System 2 (ROS 2) and the physics engine MuJoCo. The simulation environment takes place in a relative orbit scenario where dynamics models such as the Hill–Clohessy–Wiltshire (HCW) equations can be selected to determine the behavior of all bodies. The simulation supports multiple spacecraft agents with independent sensors, actuators, robotic arms, and GNC systems. State estimation on each spacecraft involves filtering, using a chosen method such as the Extended Kalman Filter (EKF), for sensors such as accelerometers, gyroscopes, and cameras. The GNC systems feature cooperative control algorithms for orbit maneuvers and robotic-arm interactions. Preliminary results demonstrate accurate tracking of desired relative trajectories under disturbances, efficient actuator usage, and scalability to larger formations. The architecture is designed to be extensible and provides a tool to integrate more advanced techniques such as reinforcement learning (RL). By combining multi-agent dynamics, estimation, and control, the framework provides a powerful and adaptive tool for improving performance in real-time spacecraft formation flight.</p>
-        <p>
-          <span class="tag">ROS 2</span>
-          <span class="tag">MuJoCo</span>
-          <span class="tag">EKF</span>
-          <span class="tag">HCW</span>
-        </p>
         <div class="btnrow">
-          <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noreferrer">View Code</a>
           <a class="btn" href="#project" rel="noreferrer">Project Details</a>
-          <a class="btn" href="#contact">Contact Me</a>
         </div>
-        <div class="media" aria-label="project screenshots">
-          <img src="assets/images/SIM_robotic_arms.png" alt="Robotic arms simulation screenshot" />
-          <img src="assets/images/SIM_foxglove_1.png" alt="Foxglove visualization screenshot" />
-          <img src="assets/Screenshot%20from%202025-10-14%2012-39-52.png" alt="Simulation screenshot" />
-        </div>
+        <p class="image-caption">Spacecraft with robotic arms for on-orbit operations and interactions.</p>
+        <img src="assets/images/SIM_robotic_arms.png" alt="Robotic arms simulation screenshot" />
       </div>
     </section>
 
@@ -109,6 +99,7 @@
           <div class="subsection">
             <h4>Overview</h4>
             <p>This high-fidelity simulation framework facilitates the development and testing of formation flight systems. The framework supports multiple dynamics models, guidance, navigation, and control (GNC) algorithms, spacecraft interactions, and state estimation/filtering techniques. Built on ROS 2, the physics simulation is powered by MuJoCo.</p>
+            <p class="image-caption">Architecture overview showing MuJoCo simulation core, ROS 2 nodes, namespaces, and message structures.</p>
             <img src="assets/images/SIM_overview_diagram.png" alt="Framework overview diagram" />
             <p class="video-caption">Sample simulation demonstration of the multi-agent spacecraft framework.</p>
             <video controls src="assets/videos/SampleSimulation.mp4"></video>
@@ -120,6 +111,7 @@
           <div class="subsection">
             <h4>Dynamics Modeling</h4>
             <p>The Hill-Clohessy-Wiltshire (HCW) equations provide a fundamental model for describing relative motion between spacecraft in formation flight. The HCW model offers significant advantages, particularly its linear time-invariant dynamics, which enable straightforward analytical solutions and efficient control system design. This linearity simplifies trajectory planning and makes the model computationally efficient for real-time applications. However, the HCW model comes with inherent limitations, most notably its assumption of zero orbital eccentricity. This assumption restricts the model's applicability to circular orbits, making it less suitable for describing relative motion in elliptical orbital scenarios where more sophisticated models such as the Yamanaka-Ankerson or Schweighart-Sedwick equations may be required.</p>
+            <p class="image-caption">Hill-Clohessy-Wiltshire (HCW) equations and alternative dynamics models for relative orbit motion.</p>
             <img src="assets/images/SIM_dynamics.png" alt="Dynamics modeling diagram" />
             <p class="video-caption">Video demonstration of a stable HCW relative orbit.</p>
             <video controls src="assets/videos/HCWOrbitDemonstration.mp4"></video>
@@ -127,6 +119,7 @@
           <div class="subsection">
             <h4>State Estimation and Filtering</h4>
             <p>The state estimation system employs a dual-sensor fusion approach to determine spacecraft navigation state. The IMU model, incorporating both accelerometer and gyroscope measurements, provides inertial data that is processed through a filtering algorithm such as an Extended Kalman Filter (EKF) or Unscented Kalman Filter (UKF), ultimately contributing to the navigation state estimation. Additionally, the framework utilizes computer vision for relative state estimation. An RGB camera captures images of the target spacecraft, which are processed through a neural network to determine the distance (magnitude of relative position) between the chaser and target. The vision-based estimates are also filtered and integrated into the navigation state, creating a complementary sensor fusion system. Future development aims to enhance the neural network to recognize different sides of the target spacecraft, enabling full relative position estimation rather than just distance magnitude, which would significantly improve pose awareness and relative navigation capabilities.</p>
+            <p class="image-caption">State estimation pipeline showing IMU processing, neural network vision processing, and filter integration.</p>
             <img src="assets/images/SIM_navigation.png" alt="State estimation and navigation diagram" />
             <p class="video-caption">Multi-camera demonstration of vision-based state estimation.</p>
             <video controls src="assets/videos/MultiCameraDemonsration.mp4"></video>
@@ -135,28 +128,35 @@
             <h4>Guidance and Control</h4>
             <p>The guidance and control system implements separate but coordinated controllers for position and pointing (attitude) control. Position control manages the spacecraft's translational motion, tracking desired relative positions while incorporating collision avoidance to maintain safe separation distances from other spacecraft in the formation. Pointing control, on the other hand, manages the spacecraft's rotational motion to achieve and maintain desired orientations.</p>
             <p>Both position and pointing control can be implemented using either PID controllers or Model Predictive Control (MPC). The MPC formulation solves an optimization problem over a finite prediction horizon, minimizing a cost function that penalizes tracking errors and control effort while satisfying constraints on states and control inputs. For position control, the MPC problem can often be formulated as a quadratic program (QP) due to the linear dynamics of relative motion, enabling fast real-time solutions. However, pointing control presents additional complexity: attitude dynamics are inherently nonlinear due to the non-commutative nature of rotations. This nonlinearity requires the pointing control MPC to be formulated as a nonlinear optimization problem, necessitating Sequential Quadratic Programming (SQP) methods for solution. SQP iteratively approximates the nonlinear problem as a series of quadratic subproblems, handling the nonlinear constraints and dynamics associated with quaternion-based attitude representation and rotational motion.</p>
+            <p class="image-caption">Guidance, navigation, and control system architecture with position and pointing control loops.</p>
             <img src="assets/images/SIM_GNC_overview.png" alt="GNC overview diagram" />
             <p class="video-caption">Demonstration of guidance and control algorithms in action.</p>
             <video controls src="assets/videos/GuidanceDemonstration.mp4"></video>
+            <p class="image-caption">PID controller architecture with collision avoidance for position and orientation control.</p>
             <img src="assets/images/SIM_PID_overview.png" alt="PID control overview" />
+            <p class="image-caption">Model Predictive Control (MPC) formulation with dynamics constraints and cost function minimization.</p>
             <img src="assets/images/SIM_MPC_overview.png" alt="MPC control overview" />
           </div>
           <div class="subsection">
             <h4>Actuators</h4>
             <p>Each spacecraft is equipped with 12 reaction control system (RCS) thrusters and 4 reaction wheels, providing redundant actuation for both translational and rotational control. This redundancy creates an overactuated system where the number of actuators exceeds the number of controlled degrees of freedom, resulting in infinitely many solutions that can achieve the desired force and torque commands. The actuator allocation problem addresses this redundancy by solving an optimization problem that selects the optimal control inputs.</p>
             <p>The allocation algorithm minimizes the L1 norm of the control input vector, which promotes actuator efficiency by encouraging sparse solutions that utilize fewer actuators. The optimization problem is subject to equality constraints ensuring that the generated wrench (combined force and torque) from the actuators matches the commanded wrench, as well as inequality constraints that enforce actuator limits (e.g., maximum thruster force and reaction wheel torque). By solving this constrained optimization problem, the allocation function determines the most efficient combination of thruster firings and reaction wheel torques to achieve the desired control objectives while respecting physical limitations and minimizing overall control effort.</p>
+            <p class="image-caption">Actuator allocation optimization problem minimizing L1 norm with wrench equality and actuator limit constraints.</p>
             <img src="assets/images/SIM_actuator_allocation.png" alt="Actuator allocation diagram" />
           </div>
           <div class="subsection">
             <h4>Simulating Interactions</h4>
             <p>The framework supports spacecraft interactions through robotic manipulators, enabling complex on-orbit operations such as repositioning target spacecraft, performing maintenance tasks, or manipulating objects. These interactions present significant control challenges due to the complex dynamics of contact physics, multi-body kinematics, and the need to maintain stability while applying forces and torques during contact operations.</p>
             <p>To address these challenges, the framework plans to implement advanced control strategies for robotic arm operations. Two primary approaches are under consideration: reinforcement learning (RL) and convex optimization. The RL approach would leverage machine learning to develop control policies that can adapt to varying contact conditions and learn optimal manipulation strategies through simulation experience. Alternatively, the convex optimization approach would involve convexifying the contact physics problem, transforming the non-convex contact mechanics into a convex optimization problem that can be solved efficiently while ensuring feasibility and optimality of the manipulation trajectories. Both approaches aim to enable robust and efficient control of robotic arms for autonomous on-orbit servicing and assembly operations.</p>
+            <p class="image-caption">Overview of spacecraft interaction capabilities and robotic arm control architecture.</p>
             <img src="assets/images/SIM_interactions_overview.png" alt="Interactions overview diagram" />
+            <p class="image-caption">Robotic arm interaction simulation with UR10e manipulators performing contact operations.</p>
             <img src="assets/images/SIM_arm_interaction.png" alt="Robotic arm interaction" />
           </div>
           <div class="subsection">
             <h4>Validation</h4>
             <p>Validation of the simulation framework is conducted using Foxglove, a powerful visualization and debugging tool that integrates seamlessly with ROS 2 through its native bridge. This integration enables real-time monitoring and analysis of every ROS 2 node within the simulation. All published topics, including sensor data, navigation states, control commands, and custom messages, are viewable and plottable directly within Foxglove. This capability is essential for debugging complex multi-agent interactions, verifying algorithm performance, and ensuring the fidelity of the physics simulation. By visualizing data streams in real-time, users can quickly identify anomalies, track system behavior, and validate the effectiveness of GNC algorithms and state estimation filters against expected performance metrics.</p>
+            <p class="image-caption">Foxglove interface showing real-time ROS 2 navigation state plots for validation and debugging.</p>
             <img src="assets/images/SIM_foxglove_1.png" alt="Foxglove visualization of ROS 2 data streams" />
           </div>
           <div class="subsection">
