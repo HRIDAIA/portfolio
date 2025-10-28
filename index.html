@@ -9,7 +9,7 @@
     :root { --bg:#0b0f14; --card:#111826; --muted:#a5b4c3; --ink:#e6edf3; --accent:#6aa6ff; }
     *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:1500px;margin:0 auto;padding:32px 20px}
+    .wrap{max-width:1400px;margin:0 auto;padding:32px 20px}
     header{display:flex;gap:20px;align-items:center;margin-top:12px}
     header img{width:120px;height:120px;border-radius:20px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.35);image-rendering:crisp-edges;image-rendering:-webkit-crisp-edges;image-rendering:pixelated;image-rendering:auto;image-rendering:high-quality;image-rendering:-webkit-optimize-contrast;image-rendering:optimize-contrast;image-rendering:optimize-quality}
     .title h1{margin:0 0 6px;font-size:32px;letter-spacing:.2px}
@@ -217,8 +217,13 @@
           </div>
           <div class="subsection">
             <h4>Simulating Interactions</h4>
-            <p>The framework supports spacecraft interactions through robotic manipulators, enabling complex on-orbit operations such as repositioning target spacecraft, performing maintenance tasks, or manipulating objects. These interactions present significant control challenges due to the complex dynamics of contact physics, multi-body kinematics, and the need to maintain stability while applying forces and torques during contact operations.</p>
-            <p>To address these challenges, the framework plans to implement advanced control strategies for robotic arm operations. Two primary approaches are under consideration: reinforcement learning (RL) and convex optimization. The RL approach would leverage machine learning to develop control policies that can adapt to varying contact conditions and learn optimal manipulation strategies through simulation experience. Alternatively, the convex optimization approach would involve convexifying the contact physics problem, transforming the non-convex contact mechanics into a convex optimization problem that can be solved efficiently while ensuring feasibility and optimality of the manipulation trajectories. Both approaches aim to enable robust and efficient control of robotic arms for autonomous on-orbit servicing and assembly operations.</p>
+            <ul>
+              <li><strong>Robotic manipulator support:</strong> The framework supports spacecraft interactions through robotic manipulators, enabling complex on-orbit operations such as repositioning target spacecraft, performing maintenance tasks, or manipulating objects.</li>
+              <li><strong>Control challenges:</strong> These interactions present significant control challenges due to the complex dynamics of contact physics, multi-body kinematics, and the need to maintain stability while applying forces and torques during contact operations.</li>
+              <li><strong>Reinforcement learning approach:</strong> The RL approach would leverage machine learning to develop control policies that can adapt to varying contact conditions and learn optimal manipulation strategies through simulation experience.</li>
+              <li><strong>Convex optimization approach:</strong> The convex optimization approach would involve convexifying the contact physics problem, transforming the non-convex contact mechanics into a convex optimization problem that can be solved efficiently while ensuring feasibility and optimality of the manipulation trajectories.</li>
+              <li><strong>Unified goal:</strong> Both approaches aim to enable robust and efficient control of robotic arms for autonomous on-orbit servicing and assembly operations.</li>
+            </ul>
             <div class="two-images">
               <div class="two-images-item">
                 <p class="image-caption">Robotic arm interaction simulation with UR10e manipulators performing contact operations.</p>
