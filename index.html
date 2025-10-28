@@ -34,7 +34,7 @@
     .subsection{border-top:1px solid #233449;padding-top:12px}
     .subsection img{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:12px 0;display:block}
     .subsection video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:12px 0;display:block;background:#000}
-    .video-caption{font-size:13px;color:var(--muted);margin:8px 0 4px;font-style:italic}
+    .video-caption{font-size:15px;color:var(--muted);margin:8px 0 4px;font-style:italic}
     .image-caption{font-size:13px;color:var(--muted);margin:4px 0 8px;font-style:italic}
     .subsection-images{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:600px){ .subsection-images{grid-template-columns:repeat(2,1fr)} }
@@ -44,6 +44,10 @@
     .featured-text{display:flex;flex-direction:column}
     .featured-image-wrapper{display:flex;flex-direction:column}
     .featured-image-wrapper img{width:100%;height:auto;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid #223044}
+    .overview-media{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
+    @media(min-width:800px){ .overview-media{grid-template-columns:repeat(2,1fr)} }
+    .overview-media-item{display:flex;flex-direction:column}
+    .overview-media-item img,.overview-media-item video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
   </style>
 </head>
 <body>
@@ -110,10 +114,16 @@
           <div class="subsection">
             <h4>Overview</h4>
             <p>This high-fidelity simulation framework facilitates the development and testing of formation flight systems. The framework supports multiple dynamics models, guidance, navigation, and control (GNC) algorithms, spacecraft interactions, and state estimation/filtering techniques. Built on ROS 2, the physics simulation is powered by MuJoCo.</p>
-            <p class="image-caption">Architecture overview showing MuJoCo simulation core, ROS 2 nodes, namespaces, and message structures.</p>
-            <img src="assets/images/SIM_overview_diagram.png" alt="Framework overview diagram" />
-            <p class="video-caption">Sample simulation demonstration of the multi-agent spacecraft framework.</p>
-            <video controls src="assets/videos/SampleSimulation.mp4"></video>
+            <div class="overview-media">
+              <div class="overview-media-item">
+                <p class="image-caption">Architecture overview showing MuJoCo simulation core, ROS 2 nodes, namespaces, and message structures.</p>
+                <img src="assets/images/SIM_overview_diagram.png" alt="Framework overview diagram" />
+              </div>
+              <div class="overview-media-item">
+                <p class="video-caption">Sample simulation demonstration of the multi-agent spacecraft framework.</p>
+                <video controls src="assets/videos/SampleSimulation.mp4"></video>
+              </div>
+            </div>
           </div>
           <div class="subsection">
             <h4>Framework</h4>
