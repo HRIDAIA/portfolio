@@ -21,6 +21,8 @@
     @media(min-width:860px){ .card.half{grid-column:span 6} }
     .card h3{margin:0 0 10px;font-size:18px}
     .card p{margin:0 0 12px;color:var(--muted);line-height:1.5}
+    .subsection ul{margin:12px 0;padding-left:20px;color:var(--muted);line-height:1.6}
+    .subsection ul li{margin:6px 0}
     .btnrow{display:flex;gap:10px;flex-wrap:wrap}
     .btn{display:inline-block;padding:10px 14px;border:1px solid #2a3b50;border-radius:10px}
     .tag{font-size:12px;color:#9fb3c7;border:1px solid #2a3b50;padding:4px 8px;border-radius:999px;margin-right:6px}
@@ -242,11 +244,25 @@
           </div>
           <div class="subsection">
             <h4>Scalability</h4>
-            <p>The framework is designed to scale effectively to support increasingly complex formation flight scenarios. A key scalability feature is the direct correspondence between agent count and node count in the ROS 2 architecture, where each spacecraft agent runs as an independent node with its own namespace, enabling parallel execution and modular expansion. The framework supports scalable camera simulation, allowing multiple spacecraft to carry vision sensors simultaneously and process their data independently. Complex control logic can be distributed across nodes, with each agent maintaining its own guidance, navigation, and control algorithms. The system is also designed to handle multiple robotic arms per spacecraft, with independent control and physics simulation for each manipulator. Additionally, optical navigation capabilities can be scaled across the formation, enabling relative positioning and formation-keeping through vision-based algorithms distributed across multiple agents. This modular, node-based architecture ensures that computational resources can be efficiently distributed and that the framework remains performant even as formation size and complexity increase.</p>
+            <ul>
+              <li><strong>Direct agent-to-node correspondence:</strong> Each spacecraft agent runs as an independent ROS 2 node with its own namespace, enabling parallel execution and modular expansion.</li>
+              <li><strong>Scalable camera simulation:</strong> Multiple spacecraft can carry vision sensors simultaneously and process their data independently.</li>
+              <li><strong>Distributed control logic:</strong> Complex guidance, navigation, and control algorithms can be distributed across nodes, with each agent maintaining its own GNC systems.</li>
+              <li><strong>Multi-arm support:</strong> The system handles multiple robotic arms per spacecraft, with independent control and physics simulation for each manipulator.</li>
+              <li><strong>Optical navigation scaling:</strong> Vision-based algorithms can be distributed across multiple agents, enabling relative positioning and formation-keeping capabilities across the entire formation.</li>
+              <li><strong>Efficient resource distribution:</strong> The modular, node-based architecture ensures computational resources are efficiently distributed, maintaining performance even as formation size and complexity increase.</li>
+            </ul>
           </div>
           <div class="subsection">
             <h4>Future Work</h4>
-            <p>Future development will focus on several key areas to expand the framework's capabilities and realism. Additional dynamics models, such as the Yamanaka-Ankerson and Schweighart-Sedwick equations, will be integrated to support elliptical orbit scenarios and provide more accurate relative motion descriptions. Nonlinear GNC algorithms will be implemented to handle more complex mission profiles and improve performance in highly dynamic environments. Learned perception systems will leverage machine learning to enhance neural network-based vision capabilities, enabling more robust target recognition and relative pose estimation. Large-scale validation efforts will test the framework's performance with extensive formation flight scenarios involving dozens of spacecraft. Vision-based filters will be developed to better integrate camera measurements with other sensor modalities, improving state estimation accuracy and robustness. Finally, robotic arm interactions will be fully implemented with control algorithms for autonomous manipulation tasks, including the RL and convex optimization approaches discussed earlier, enabling complex on-orbit servicing and assembly operations.</p>
+            <ul>
+              <li><strong>Additional dynamics models:</strong> Integration of Yamanaka-Ankerson and Schweighart-Sedwick equations to support elliptical orbit scenarios and provide more accurate relative motion descriptions.</li>
+              <li><strong>Nonlinear GNC algorithms:</strong> Implementation of nonlinear guidance, navigation, and control algorithms to handle more complex mission profiles and improve performance in highly dynamic environments.</li>
+              <li><strong>Learned perception systems:</strong> Development of machine learning-enhanced neural network vision capabilities for more robust target recognition and relative pose estimation.</li>
+              <li><strong>Large-scale validation:</strong> Testing framework performance with extensive formation flight scenarios involving dozens of spacecraft.</li>
+              <li><strong>Vision-based filters:</strong> Development of filters to better integrate camera measurements with other sensor modalities, improving state estimation accuracy and robustness.</li>
+              <li><strong>Robotic arm interactions:</strong> Full implementation of control algorithms for autonomous manipulation tasks, including reinforcement learning and convex optimization approaches, enabling complex on-orbit servicing and assembly operations.</li>
+            </ul>
           </div>
         </div>
       </div>
