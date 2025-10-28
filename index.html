@@ -58,10 +58,10 @@
     .subsection-image-wrapper{display:flex;flex-direction:column}
     .subsection-image-wrapper img{width:100%;height:auto;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid #223044}
     .gnc-image-video{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
-    @media(min-width:800px){ .gnc-image-video{grid-template-columns:1fr 1fr;align-items:stretch} }
-    .gnc-image-video .subsection-media-item{display:flex;flex-direction:column;flex:1}
-    .gnc-image-video .subsection-media-item img{width:100%;flex:1;min-height:0;object-fit:contain;border-radius:10px;border:1px solid #223044;margin:0}
-    .gnc-image-video .subsection-media-item video{width:100%;height:100%;object-fit:contain;border-radius:10px;border:1px solid #223044;margin:0}
+    @media(min-width:800px){ .gnc-image-video{grid-template-columns:1fr 1fr;align-items:start} }
+    .gnc-image-video .subsection-media-item{display:flex;flex-direction:column}
+    .gnc-image-video .subsection-media-item video{width:100%;height:auto;border-radius:10px;border:1px solid #223044;margin:0}
+    .gnc-image-video .subsection-media-item img{width:auto;max-width:100%;height:auto;object-fit:contain;border-radius:10px;border:1px solid #223044;margin:0}
     .two-images{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:800px){ .two-images{grid-template-columns:repeat(2,1fr)} }
     .two-images-item{display:flex;flex-direction:column}
@@ -263,6 +263,31 @@
 
     <footer>© <span id="y"></span> Hridai Ambati</footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Match GNC image height to video height
+    function matchGNCImageHeight() {
+      const gncContainer = document.querySelector('.gnc-image-video');
+      if (!gncContainer) return;
+      const video = gncContainer.querySelector('video');
+      const img = gncContainer.querySelector('img');
+      if (video && img) {
+        const updateHeight = () => {
+          const videoHeight = video.offsetHeight;
+          if (videoHeight > 0) {
+            img.style.height = videoHeight + 'px';
+            img.style.width = 'auto';
+          }
+        };
+        video.addEventListener('loadedmetadata', updateHeight);
+        video.addEventListener('loadeddata', updateHeight);
+        // Also update after a small delay to ensure video is rendered
+        setTimeout(updateHeight, 100);
+        // Update on window resize
+        window.addEventListener('resize', updateHeight);
+      }
+    }
+    matchGNCImageHeight();
+  </script>
 </body>
 </html>
