@@ -15,7 +15,8 @@
     header img{width:120px;height:120px;border-radius:20px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.35);image-rendering:crisp-edges;image-rendering:-webkit-crisp-edges;image-rendering:pixelated;image-rendering:auto;image-rendering:high-quality;image-rendering:-webkit-optimize-contrast;image-rendering:optimize-contrast;image-rendering:optimize-quality}
     .title h1{margin:0 0 6px;font-size:32px;letter-spacing:.2px}
     .title p{margin:0;color:var(--muted)}
-    .chipbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chipbar{display:grid;gap:6px;margin-top:12px}
+    .chiprow{display:flex;flex-wrap:wrap;gap:8px}
     .chip{font-size:12px;padding:6px 10px;border:1px solid #273445;border-radius:999px;color:#cbd5e1}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:28px}
     .card{grid-column:span 12;background:var(--card);border:1px solid #223044;border-radius:18px;padding:18px 18px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
@@ -84,7 +85,15 @@
         <h1>Hridai Ambati</h1>
         <p>I have a passion for multi-agent autonomy within the realm of aerospace robotics. My work primarily focuses on this area at the Aerospace Robotics Laboratory (ARL), where I contribute to advancing innovative solutions for complex aerospace systems.</p>
         <div class="chipbar">
-          <span class="chip">Convex Optimization</span><span class="chip">C++, Python, MATLAB</span><span class="chip">GNC</span><span class="chip">Bayesian State Estimation</span><span class="chip">EKF</span><span class="chip">ROS 2, MuJoCo</span><span class="chip">HCW</span><span class="chip">Multi-Agent Autonomy</span><span class="chip">Cooperative Control</span><span class="chip">Motion Planning</span>
+          <div class="chiprow">
+            <span class="chip">Motion Planning</span><span class="chip">State Estimation</span><span class="chip">Optical Navigation</span><span class="chip">Multi-Agent Autonomy</span>
+          </div>
+          <div class="chiprow">
+            <span class="chip">Convex Optimization</span><span class="chip">Bayesian Filtering</span><span class="chip">Cooperative Control</span><span class="chip">Guidance, Navigation &amp; Control (GNC)</span>
+          </div>
+          <div class="chiprow">
+            <span class="chip">ROS 2</span><span class="chip">MuJoCo</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">MATLAB</span>
+          </div>
         </div>
       </div>
     </header>
