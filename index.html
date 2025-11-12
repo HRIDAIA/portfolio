@@ -69,8 +69,8 @@
     @media(min-width:800px){ .two-images{grid-template-columns:repeat(2,1fr)} }
     .two-images-item{display:flex;flex-direction:column}
     .two-images-item img{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
-    .project-list{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-    .project-list .btn{display:flex;justify-content:center;align-items:center;width:100%;text-align:center}
+    .project-list{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .project-list .btn{display:flex;justify-content:center;align-items:center;min-height:52px;padding:12px 16px;text-align:center;white-space:normal;line-height:1.4}
     .summary-list{margin:12px 0;padding-left:20px;color:var(--muted);line-height:1.6}
     .summary-list li{margin:6px 0}
   </style>
@@ -107,9 +107,9 @@
         <p>Explore detailed case studies for my primary research initiatives. Each subpage dives into the technical architecture, validation, and next steps.</p>
         <ul class="project-list">
           <li><a class="btn" href="projects/flagship.html">Multi-Agent Spacecraft Simulation Framework</a></li>
-          <li><a class="btn" href="projects/project-two.html">Project Two</a></li>
-          <li><a class="btn" href="projects/project-three.html">Project Three</a></li>
-          <li><a class="btn" href="projects/project-four.html">Project Four</a></li>
+          <li><a class="btn" href="projects/project-two.html">Quadrotor 3D DDP Guidance Simulation</a></li>
+          <li><a class="btn" href="projects/project-three.html">Breakpoint Analysis for an LQR-Controlled Rocket</a></li>
+          <li><a class="btn" href="projects/project-four.html">Adaptive Cruise Control for Ground Vehicles</a></li>
         </ul>
       </div>
     </section>
@@ -125,30 +125,30 @@
       </div>
     </section>
 
-    <section class="grid" aria-label="project-two">
+    <section class="grid" aria-label="project-quadrotor">
       <div class="card">
-        <h3>Project Two</h3>
-        <p>A forthcoming project exploring additional spacecraft autonomy capabilities. The full case study is underway and will outline problem framing, technical decisions, and validation artifacts.</p>
+        <h3>Quadrotor 3D DDP Guidance Simulation</h3>
+        <p>A dynamic programming guidance study for a quadrotor navigating a 3D environment. The case study will cover terrain-aware trajectory generation, solver performance, and closed-loop tracking fidelity.</p>
         <div class="btnrow">
           <a class="btn" href="projects/project-two.html">Case Study (In Progress)</a>
         </div>
       </div>
     </section>
 
-    <section class="grid" aria-label="project-three">
+    <section class="grid" aria-label="project-lqr">
       <div class="card">
-        <h3>Project Three</h3>
-        <p>Another research initiative focused on advancing GNC methodologies. Check back soon for a detailed breakdown of architecture, experiments, and results.</p>
+        <h3>Breakpoint Analysis for an LQR-Controlled Rocket</h3>
+        <p>An investigation into switching logic and breakpoint placement for a launch vehicle governed by LQR feedback. Upcoming documentation will detail design trade-offs, boundary-layer behavior, and simulation validation.</p>
         <div class="btnrow">
           <a class="btn" href="projects/project-three.html">Case Study (In Progress)</a>
         </div>
       </div>
     </section>
 
-    <section class="grid" aria-label="project-four">
+    <section class="grid" aria-label="project-acc">
       <div class="card">
-        <h3>Project Four</h3>
-        <p>This project will cover complementary work across aerospace autonomy, including tooling and mission analysis. A comprehensive write-up is being prepared.</p>
+        <h3>Adaptive Cruise Control for Ground Vehicles</h3>
+        <p>A control and estimation stack for longitudinal autonomy on ground vehicles. The forthcoming write-up will walk through sensor fusion, spacing policy design, and closed-course testing.</p>
         <div class="btnrow">
           <a class="btn" href="projects/project-four.html">Case Study (In Progress)</a>
         </div>
