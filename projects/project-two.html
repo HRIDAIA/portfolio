@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Two — Case Study In Progress</title>
+  <meta name="description" content="Case study in progress." />
+  <link rel="icon" href="../assets/images/headshot.png" type="image/png" />
+  <style>
+    :root { --bg:#0b0f14; --card:#111826; --muted:#a5b4c3; --ink:#e6edf3; --accent:#6aa6ff; }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:900px;margin:0 auto;padding:32px 20px}
+    .card{background:var(--card);border:1px solid #223044;border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h1{margin:0 0 12px;font-size:28px}
+    p{margin:0 0 16px;color:var(--muted);line-height:1.6}
+    .back-link{display:inline-flex;align-items:center;margin-bottom:14px;font-size:14px;color:var(--muted)}
+    .back-link span{margin-right:6px}
+    footer{margin:36px 0 12px;color:#7d8ea1;font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="../index.html"><span>←</span>Back to Portfolio</a>
+    <div class="card">
+      <h1>Project Two</h1>
+      <p>The full case study is currently in progress. I am documenting system architecture, experiments, and results, and will publish the detailed write-up soon.</p>
+      <p>If you would like early access to draft materials or to discuss the work-in-progress scope, feel free to <a href="mailto:ahridai00@gmail.com">reach out by email</a>.</p>
+    </div>
+    <footer>© <span id="y"></span> Hridai Ambati</footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
