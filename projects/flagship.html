@@ -40,6 +40,8 @@
     .overview-media-item img,.overview-media-item video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
     .subsection-media{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:800px){ .subsection-media{grid-template-columns:repeat(2,1fr)} }
+    .subsection-media.single-column{grid-template-columns:1fr}
+    @media(min-width:800px){ .subsection-media.single-column{grid-template-columns:1fr} }
     .subsection-media-item{display:flex;flex-direction:column}
     .subsection-media-item img,.subsection-media-item video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
     .gnc-image-video{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
@@ -143,7 +145,7 @@
             <h4>Guidance</h4>
             <p>The guidance stack generates reference trajectories that respect mission objectives and collision-avoidance rules for every spacecraft in the formation. Desired relative orbits are expressed as time-varying setpoints derived from HCW solutions, rendezvous waypoints, or operator-specified inspection paths. Each agent evaluates feasible approach corridors, constraining separation distances, line-of-sight cones, and plume impingement limits before publishing guidance commands over ROS 2 topics.</p>
             <p>Scenario-specific planners support impulsive burns for rapid retargeting as well as continuous-thrust profiles for fine station keeping. Guidance outputs are timestamped and synchronized across agents to maintain coherent formations, enabling cooperative maneuvers such as reconfiguration, leader–follower swaps, and coordinated inspection arcs.</p>
-            <div class="subsection-media">
+            <div class="subsection-media single-column">
               <div class="subsection-media-item">
                 <p class="image-caption">Differential Dynamic Programming (DDP) equations showing the backward-pass value updates, gains, and control law used to synthesize nominal trajectories.</p>
                 <img src="../assets/images/DDP_overview.PNG" alt="Differential Dynamic Programming overview equations" />
