@@ -46,11 +46,15 @@
     .subsection-media-item img,.subsection-media-item video{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
     .gnc-image-video{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:800px){ .gnc-image-video{grid-template-columns:1fr 1fr;align-items:start} }
+    .gnc-image-video.single-column{grid-template-columns:1fr}
+    @media(min-width:800px){ .gnc-image-video.single-column{grid-template-columns:1fr} }
     .gnc-image-video .subsection-media-item{display:flex;flex-direction:column}
     .gnc-image-video .subsection-media-item video{width:100%;height:auto;border-radius:10px;border:1px solid #223044;margin:0}
     .gnc-image-video .subsection-media-item img{width:auto;max-width:100%;height:auto;object-fit:contain;border-radius:10px;border:1px solid #223044;margin:0}
     .two-images{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
     @media(min-width:800px){ .two-images{grid-template-columns:repeat(2,1fr)} }
+    .two-images.single-column{grid-template-columns:1fr}
+    @media(min-width:800px){ .two-images.single-column{grid-template-columns:1fr} }
     .two-images-item{display:flex;flex-direction:column}
     .two-images-item img{width:100%;max-width:100%;border-radius:10px;border:1px solid #223044;margin:0}
     footer{margin:36px 0 12px;color:#7d8ea1;font-size:13px;text-align:center}
@@ -157,7 +161,7 @@
             <h4>Control</h4>
             <p>The control system implements separate but coordinated controllers for position and pointing (attitude) regulation. Position control manages translational motion, tracking the guidance stack’s relative position commands while incorporating collision avoidance to maintain safe separation distances from neighboring spacecraft. Pointing control manages rotational motion so that sensors, manipulators, and communications hardware maintain required orientations.</p>
             <p>Both position and pointing control can be implemented using either PID controllers or Model Predictive Control (MPC). The MPC formulation solves an optimization problem over a finite prediction horizon, minimizing a cost function that penalizes tracking errors and control effort while satisfying constraints on states and control inputs. For position control, the MPC problem can often be formulated as a quadratic program (QP) due to the linear dynamics of relative motion, enabling fast real-time solutions. Pointing control presents additional complexity: attitude dynamics are inherently nonlinear due to the non-commutative nature of rotations. This nonlinearity requires the pointing control MPC to be formulated as a nonlinear optimization problem, necessitating Sequential Quadratic Programming (SQP) methods for solution. SQP iteratively approximates the nonlinear problem as a series of quadratic subproblems, handling the nonlinear constraints and dynamics associated with quaternion-based attitude representation and rotational motion.</p>
-            <div class="gnc-image-video">
+            <div class="gnc-image-video single-column">
               <div class="subsection-media-item">
                 <p class="image-caption">Guidance, navigation, and control system architecture with position and pointing control loops.</p>
                 <img src="../assets/images/SIM_GNC_overview.png" alt="GNC overview diagram" />
@@ -167,7 +171,7 @@
                 <video controls src="../assets/videos/GuidanceDemonstration.mp4"></video>
               </div>
             </div>
-            <div class="two-images">
+            <div class="two-images single-column">
               <div class="two-images-item">
                 <p class="image-caption">PID-based position and pointing loops with collision-avoidance blending and world-frame wrench computation.</p>
                 <img src="../assets/images/SIM_PID_overview.png" alt="PID control architecture with collision avoidance" />
