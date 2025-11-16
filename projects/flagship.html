@@ -209,17 +209,14 @@
               <li><strong>Robotic manipulator support:</strong> The framework supports spacecraft interactions through robotic manipulators, enabling complex on-orbit operations such as repositioning target spacecraft, performing maintenance tasks, or manipulating objects.</li>
               <li><strong>Control challenges:</strong> These interactions present significant control challenges due to the complex dynamics of contact physics, multi-body kinematics, and the need to maintain stability while applying forces and torques during contact operations.</li>
               <li><strong>Reinforcement learning approach:</strong> The RL approach would leverage machine learning to develop control policies that can adapt to varying contact conditions and learn optimal manipulation strategies through simulation experience.</li>
-              <li><strong>Convex optimization approach:</strong> The convex optimization approach would involve convexifying the contact physics problem, transforming the non-convex contact mechanics into a convex optimization problem that can be solved efficiently while ensuring feasibility and optimality of the manipulation trajectories.</li>
-              <li><strong>Unified goal:</strong> Both approaches aim to enable efficient control of robotic arms for autonomous on-orbit servicing and assembly operations.</li>
+              <li><strong>Convex optimization path:</strong> A convexified contact-physics formulation (e.g., linearized complementarity with slack penalties) would enable rapid solver iterations that respect wrench balance, joint limits, and contact cones while remaining numerically stable.</li>
+              <li><strong>Policy-learning path:</strong> Reinforcement learning policies provide adaptability to unmodeled surface properties and unstructured targets, extending the interaction library beyond scripted behaviors.</li>
+              <li><strong>Controller roadmap:</strong> The near-term plan is to demonstrate hybrid manipulation sequences by combining convex optimization for nominal motions with RL fine-tuning to handle uncertainties.</li>
             </ul>
-            <div class="two-images">
+            <div class="two-images single-column">
               <div class="two-images-item">
                 <p class="image-caption">Robotic arm interaction simulation with UR10e manipulators performing contact operations.</p>
                 <img src="../assets/images/SIM_arm_interaction.png" alt="Robotic arm interaction" />
-              </div>
-              <div class="two-images-item">
-                <p class="image-caption">Overview of spacecraft interaction capabilities and robotic arm control architecture.</p>
-                <img src="../assets/images/SIM_interactions_overview.png" alt="Interactions overview diagram" />
               </div>
             </div>
           </article>
