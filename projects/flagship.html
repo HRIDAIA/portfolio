@@ -90,8 +90,17 @@
             <p>This high-fidelity simulation framework facilitates the development and testing of formation flight systems. The framework supports multiple dynamics models, guidance, navigation, and control (GNC) algorithms, spacecraft interactions, and state estimation/filtering techniques. Built on ROS 2, the physics simulation is powered by MuJoCo.</p>
             <div class="overview-media">
               <div class="overview-media-item">
-                <p class="image-caption">Architecture overview showing MuJoCo simulation core, ROS 2 nodes, namespaces, and message structures.</p>
-                <img src="../assets/images/SIM_overview_diagram.png" alt="Framework overview diagram" />
+                <p class="image-caption">Architecture overview highlighting ROS 2 node/topic groups and the MuJoCo simulation stack.</p>
+                <div class="two-images">
+                  <div class="two-images-item">
+                    <p class="image-caption">ROS 2 overview: topic messages, node groups, and namespaces.</p>
+                    <img src="../assets/images/ROS2_overview.PNG" alt="ROS 2 architecture overview diagram" />
+                  </div>
+                  <div class="two-images-item">
+                    <p class="image-caption">MuJoCo overview: simulation core with sensors, actuators, and visualization.</p>
+                    <img src="../assets/images/Mujoco_overview.PNG" alt="MuJoCo simulation overview diagram" />
+                  </div>
+                </div>
               </div>
               <div class="overview-media-item">
                 <p class="video-caption">Sample simulation demonstration of the multi-agent spacecraft framework.</p>
