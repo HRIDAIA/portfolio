@@ -13,7 +13,9 @@
     .wrap{max-width:900px;margin:0 auto;padding:32px 20px}
     .card{background:var(--card);border:1px solid #223044;border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
     h1{margin:0 0 12px;font-size:28px}
+    h2{margin:20px 0 10px;font-size:20px;color:var(--ink)}
     p{margin:0 0 16px;color:var(--muted);line-height:1.6}
+    ul{margin:0 0 16px 20px;color:var(--muted);line-height:1.6;padding:0}
     .back-link{display:inline-flex;align-items:center;margin-bottom:14px;font-size:14px;color:var(--muted)}
     .back-link span{margin-right:6px}
     footer{margin:36px 0 12px;color:#7d8ea1;font-size:13px;text-align:center}
@@ -24,8 +26,27 @@
     <a class="back-link" href="../index.html"><span>←</span>Back to Portfolio</a>
     <div class="card">
       <h1>Optimal Guidance and Feedback Control for Orbital Injection</h1>
-      <p>This case study tracks a modular guidance stack for orbital injection that blends convex ascent targeting with feedback controllers tuned for dispersions. I’m wiring up analytical ascent models, Monte Carlo shot runs, and ROS 2 visualization to iterate quickly before pushing concepts into the multi-agent simulator.</p>
-      <p>Upcoming notes will highlight the optimal control formulation, constraint handling, and how estimator-driven feedback keeps the vehicle on its target orbit. Reach out if you would like an early walkthrough of the workbench or the data products it generates.</p>
+      <p>This case study extends the AE6511 Optimal Guidance &amp; Control project brief (Bryson &amp; Ho, §6.4) that maximizes horizontal velocity during a thrust-direction burn. The reference problem assumes a constant-mass, constant-gravity rocket that must reach altitude <em>h</em> at time <em>T</em> with zero vertical velocity while preserving the highest possible downrange speed.</p>
+
+      <p>I’m translating the analytical specification into a modern tooling stack—symbolic solvers for the Euler-Lagrange equations, convex approximations for guidance tables, and Monte Carlo + feedback studies that shake out dispersions before feeding the results into my multi-agent simulation framework.</p>
+
+      <h2>Spec Overview</h2>
+      <ul>
+        <li>States: <em>x</em> (downrange), <em>z</em> (altitude), <em>u</em> (horizontal velocity), <em>w</em> (vertical velocity); dynamics <em>ẋ = u</em>, <em>ż = w</em>, <em>ū = a cos β</em>, <em>ẇ = a sin β − g</em>.</li>
+        <li>Control: thrust direction β measured counterclockwise from the x-axis; acceleration magnitude <em>a</em> is constant with <em>a/g = 3</em> and non-dimensionalized <em>2h/(aT²) = 0.258</em>.</li>
+        <li>Objective: maximize terminal horizontal velocity (equivalently minimize <em>J = −a ∫₀ᴺ cos β dt</em>) subject to <em>x(0)=z(0)=u(0)=w(0)=0</em>, <em>z(T)=h</em>, <em>w(T)=0</em>, and free <em>x(T)</em>, <em>u(T)</em>.</li>
+        <li>Tasks from the brief: derive Euler-Lagrange and boundary conditions, solve for the optimal β(t), plot state/costate trajectories and Hamiltonian, verify constraints, and build perturbation feedback gains.</li>
+      </ul>
+
+      <h2>Planned Additions</h2>
+      <ul>
+        <li>Numerically integrate the necessary conditions, validate against Bryson &amp; Ho’s closed-form thrust steering law, and package the solution in a MATLAB/Python notebook.</li>
+        <li>Compute second-order optimality checks and neighboring-extremal feedback gains, then visualize gain schedules across the burn.</li>
+        <li>Inject 0.5g sinusoidal acceleration disturbances to compare open-loop, feedforward, and feedback-compensated trajectories.</li>
+        <li>Publish scripts, figures, and guidance tables so the scenario can slot directly into larger ascent/autonomy experiments.</li>
+      </ul>
+
+      <p>Reach out if you want to preview the derivations or trajectory sets while I finish documenting the pipeline.</p>
     </div>
     <footer>© <span id="y"></span> Hridai Ambati</footer>
   </div>
